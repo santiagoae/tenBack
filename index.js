@@ -23,7 +23,15 @@ app.post('/envio', async (req, res) => {
         from: 'kawadsign@gmail.com',
         subject: req.body.service,
         to: 'kawadsign@gmail.com',
-        text: JSON.stringify(req.body)
+        // text: JSON.stringify(req.body)
+        text:`Enviado desde el sitio web oficial de Ten Salud Oral.
+        Nombre del usuario: ${req.body.name}
+        Correo del usuario: ${req.body.email}
+        Telefono de contacto: ${req.body.phone}
+        Servicio que desea: ${req.body.service}
+        Fecha tentantiva a evaluar: ${req.body.tentative_date}
+        ______________________________________________________
+        Reenvia un correo al usuario para confirmarle su cita, gracias.`,
     })
 
     if (info) {
@@ -33,6 +41,7 @@ app.post('/envio', async (req, res) => {
     }
 });
 
-app.listen('3000', () => {
-    console.log('escuchando');
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`escuchando por el puerto ${PORT}`);
 })
