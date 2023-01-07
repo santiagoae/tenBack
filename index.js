@@ -10,19 +10,23 @@ app.use(bodyParser.urlencoded({extended:false}));
 
 app.post('/envio', async (req, res) => {
     let transporter = nodeMailer.createTransport({
-        host: 'smtp.gmail.com',
+        host: 'smtp.titan.email',
         port: 587,
         secure: false,
         auth:{
-            user: 'kawadsign@gmail.com',
-            pass: 'ogftlaunzksdayew'
+            user: 'citas@tensaludoral.com',
+            pass: 'citasadmin2022'
         }
+        // auth:{
+        //     user: 'kawadsign@gmail.com',
+        //     pass: 'ogftlaunzksdayew'
+        // }
     })
 
     let info = await transporter.sendMail({
-        from: 'kawadsign@gmail.com',
+        from: 'citas@tensaludoral.com',
         subject: req.body.service,
-        to: 'kawadsign@gmail.com',
+        to: 'citas@tensaludoral.com',
         // text: JSON.stringify(req.body)
         text:`Enviado desde el sitio web oficial de Ten Salud Oral.
         Nombre del usuario: ${req.body.name}
