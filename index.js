@@ -39,7 +39,7 @@ app.post('/envio', async (req, res) => {
     })
 
     if (info) {
-        res.send(JSON.parse('{"response": "Tu cita esta siendo evaluada"}'));
+        res.send(JSON.parse('{"response": "Tu petición de cita esta siendo evaluada, nos contactaremos via whatsapp o correo lo mas pronto posible"}'));
     }else{
         res.send(JSON.parse('{"error": "problemas al enviar tu peticion"}'));
     }
